@@ -1,0 +1,224 @@
+\documentclass[10pt]{article}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=2cm]{geometry}
+
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyphenat}
+\usepackage[export]{adjustbox}
+\usepackage{csquotes}
+
+
+\title{Anleitung zum Aufbau des 3D-LED Weihnachtsbaums (CTR-30)}
+\author{haxko e.V. · www.haxko.space · Florian \enquote{adlerweb} Knodt}
+\date{2024-12-22 \textit{Revision: 1.2}}
+
+\begin{document}
+	
+	\maketitle
+	\begin{center}
+		\includegraphics[width=0.3\textwidth]{tree.png}
+		
+		\includegraphics[]{by.eps}
+		\includegraphics[width=0.28\textwidth]{haxko-logo.eps}
+	\end{center}
+	
+	\section{Einführung}
+	Hallo und willkommen beim Weihnachtslöten des haxko e.V.🦉! Heute löten wir einen in verschiedenen Farben blinkenden Weihnachtsbaum zusammen. Am Ende hast du eine schöne Weinhachtsdekoration und gleich noch die Fähigkeit des Lötens erlernt.
+	
+	\section{Sicherheitshinweise}
+	\begin{itemize}
+		\item Verbrennungsgefahr! Die Spitze des Lötkolbens wird über 300°C heiß. Fasse ihn immer nur am Griff an, passe auf wo du ihn ablegst und sei vorsichtig, dass die Spitze nicht an Kleidung, Kabel und Ähnliches kommt.
+		\item Löte nur in gut belüfteten Räumen, um das Einatmen von Dämpfen zu vermeiden. Wir haben hier eine Absauganlage.
+		\item Verwende einen Lötkolbenhalter, um Verbrennungen zu verhindern.
+		\item Trage eine Schutzbrille, um deine Augen vor Lötzinnspritzern und Drahtresten beim Schneiden zu schützen.
+		\item Arbeite ruhig und konzentriert.
+		\item Wenn du dir unsicher bist, sprich bitte unsere Helfer*innen an.
+	\end{itemize}
+	
+	\section{Baum-Platine vorbereiten (Platine A)}
+	\begin{minipage}{0.85\textwidth}
+		Eine Platine ist eine flache Platte, die elektrische Bauteile miteinander verbindet. Sie besteht meistens aus einem festen Material, auf dem durch \enquote{Leiterbahnen} eine \enquote{Schaltung} aufgebracht ist. Leiterbahnen sind Linien und Flächen aus Kupfer und sozusagen fest verlegte Kabel, welche Geräte miteinander verbinden. Was womit verbunden wird nennt man Schaltung, hierdurch wird bestimmt welche Funktion das Gerät am Ende hat.
+	
+		Die Platinen in Baumform sind am unteren Rand (Stamm) mit CTR-30A (Schlitz nach oben) und CTR-30B (Schlitz nach unten) beschriftet. Nimm dir die Platine A.
+	\end{minipage}
+	\begin{minipage}{0.15\textwidth}\raggedleft
+	\includegraphics[width=\linewidth]{pcb-tree.png}
+	\end{minipage}
+	
+	\subsection{Widerstände}
+	\begin{minipage}{0.975\textwidth}
+		Da sie nicht so hoch sind, fangen wir mit den Widerständen an.
+		
+		Widerstände sind kleine Bauteile, welche den Strom in einem Stromkreis bremsen. Du kannst dir das wie eine Art Hindernis vorstellen, das den Elektronen (das sind die Teilchen, die den Strom bilden) den Weg erschwert. Das ist wichtig, damit empfindliche Bauteile nicht durch zu viel Strom kaputtgehen.
+		
+		Die Widerstände in diesem Bausatz sind die kleinen, zylinderförmigen Bauteile mit zwei dünnen Drahtbeinen, die aus den Enden herausragen. Du erkennst sie leicht an den Farbringen, die um den Zylinder gemalt sind. Diese Farbringe geben an, wie stark der Widerstand den Strom bremst.
+		
+		Wir beginnen mit den 10kΩ-Widerständen. Das sind die, von denen die meisten dabei sind. Nimm dir einen der Widerstände, in den du ihn auf beiden Seiten kurz hinter dem Kleber freischneidest. Such dann auf der Platine die Position, welche mit \verb*|R1| beschriftet ist. R steht dabei für das Englische \enquote{Resistor}.
+	\end{minipage}
+	\begin{minipage}{0.025\textwidth}\raggedleft
+		\includegraphics[width=\linewidth]{resistor.png}
+	\end{minipage}
+	\noindent
+	
+	\begin{itemize}
+		
+		\begin{minipage}{0.9\textwidth}
+			
+			\item Widerstand vorbereiten (Beinchen umbiegen)
+			\begin{itemize}
+				\item Schau dir die Löcher auf der Platine an, wo der Widerstand eingesetzt werden soll.
+				\item Biege die beiden Drahtbeinchen des Widerstands so um, dass sie in die Löcher der Platine passen. Am besten biegst du sie mit den Fingern knapp hinter dem Bauteil um.
+			\end{itemize}
+		\end{minipage}
+		\begin{minipage}{0.08\textwidth}\raggedleft
+			\includegraphics[width=\linewidth]{resistor-bend.png}
+		\end{minipage}
+		\begin{minipage}{0.9\textwidth}
+			\item Widerstand einsetzen
+			\begin{itemize}
+				\item Stecke den Widerstand mit den umgebogenen Beinchen in die vorgesehenen Löcher der Platine. Achte darauf, dass er möglichst flach auf der Platine sitzt.
+				Wenn die Beinchen durch die Platine ragen, kannst du sie etwas spreizen, damit der Widerstand nicht herausfällt. Welches der Beinchen du in welches der beiden Löcher für R1 steckst ist hierbei egal, das Bauteil hat keine \enquote{Polarität}, also keine vorgegebene Richtung.
+			\end{itemize}
+		\end{minipage}
+		\begin{minipage}{0.08\textwidth}\raggedleft
+			\includegraphics[width=\linewidth]{resistor-through.png}
+		\end{minipage}
+		\item Löten der Lötstellen
+		
+		\begin{minipage}{0.9\textwidth}
+			\begin{itemize}
+				\item Dreh die Platine um, sodass du auf die Seite mit den Drahtenden schaust.
+				\item Halte mit einer Hand die Spitze des Lötkolbens an die Lötstelle, wo das Beinchen den Metallring auf der Platine berührt.
+				\item Führe mit der anderen Hand das Lötzinn kurz an die erhitzte Stelle. Das Lötzinn sollte schmelzen und eine kleine glänzende \enquote{Kuppel} um das Beinchen bilden.
+				\item Entferne zuerst das Lötzinn, warte eine Sekunde und nimm dann auch den Lötkolben weg. Lass das Lötzinn einige Sekunden abkühlen und fest werden.  Die Lötstelle sollte glatt und glänzend sein – keine Kugeln oder Spitzen.
+			\end{itemize}
+		\end{minipage}
+			\begin{minipage}{0.08\textwidth}\raggedleft
+			\includegraphics[width=\linewidth]{solder-both.png}
+			\includegraphics[width=\linewidth]{cut.png}
+		\end{minipage}
+			
+		\item Überstehende Beinchen abschneiden
+		\begin{itemize}
+			\item Nimm einen Seitenschneider und schneide die überstehenden Drahtenden knapp über der Lötstelle ab. Achte darauf, dass du dabei nicht die frisch gelötete Stelle beschädigst.
+		\end{itemize}
+	\end{itemize}
+	
+	\begin{minipage}{0.85\textwidth}
+		Glückwunsch! Du hast dein erstes Bauteil eingelötet! Wie du aber sicher schon gemerkt hast, haben wir noch ein paar vor uns. Fülle auf der Platine die Positionen \verb|R3, R5 und R7| ebenfalls mit diesen 10kΩ-Widerständen und verlöte auch diese.
+	
+		Wenn du damit fertig bist nehmen wir uns noch die anderen Werte vor. 2kΩ (hat einen roten Streifen am Rand) kommt auf R2, 330Ω (Hat zwei Orange Striche) auf R6 und 1kΩ (Nur dunkle Farben am Rand) auf R4.
+	\end{minipage}
+	\begin{minipage}{0.15\textwidth}\raggedright
+	\includegraphics[width=\linewidth, right]{resistor-place.png}
+	\end{minipage}
+	
+	\pagebreak
+	
+	\subsection{Transistoren}
+	\begin{minipage}{0.90\textwidth}
+		Ein Transistor ist ein elektronisches Bauteil, welches in einem Stromkreis als automatischer Schalter oder Verstärker genutzt werden kann. Transistoren sind sehr wichtig, weil sie die Grundlage für fast alle elektronische Geräte sind, z. B. für fast alle Computer, Handys, Radios oder die ganzen Geräte, welche euch das Internet bringen.
+		
+		Die Bauform in diesem Bausatz nennt sich \enquote{TO-92}, das ist ein kleines, schwarzes Bauteil, das wie ein winziger Halbkreis aussieht. Er hat drei dünne Metallbeinchen, die in einer Reihe angeordnet sind. Auf der flachen Seite steht eine Beschriftung, die dir sagt, welcher Typ von Transistor es ist. Bei uns sind alle vom selben Typ (9014), du musst dich also mit dem Aufdruck nicht weiter beschäftigen.
+		
+		Auf der Platine sind die Positionen mit Q1, Q2 und Q3 beschriftet. Diesmal ist der Buchstabe leider nicht einfach nur aus dem Englischen - verbuchen wir mal unter \enquote{hat man schon immer so gemacht} ;).
+	\end{minipage}
+	\begin{minipage}{0.1\textwidth}\raggedright
+		\includegraphics[width=\linewidth, right]{transistor.png}
+		\includegraphics[width=\linewidth, right]{transistor-place.png}
+	\end{minipage}
+	
+	Wie man sie einlötet kannst du dir sicher schon denken, also: Beinchen falls nötig etwas auseinanderbiegen, durch die Löcher stecken und – wie auch schon die Widerstände – verlöten. Achte darauf, dass die abgeflachte Seite des Bauteils mit der Beschriftung auf der Platine übereinstimmen muss.
+		
+	\subsection{Elkos}
+	\begin{minipage}{0.85\textwidth}
+		Ein Elektrolytkondensator, kurz Elko, ist ein Bauteil, das elektrische Energie speichert und bei Bedarf wieder abgeben kann. Man kann ihn sich wie einen kleinen Akku vorstellen, der jedoch sehr schnell auf- und wieder entladen werden kann.
+		
+		Elkos sind kleine, runde Zylinder mit zwei Drahtbeinchen am unteren Ende. Auf der Hülle sind die Werte für Kapazität (in Mikrofarad, µF) und die maximale Spannung (in Volt, V) aufgedruckt. Auch hier aben wir nur einen Wert im Bausatz, du musst die Zahlen also nicht weiter beachten.
+		
+		Ein Elko hat zwei Anschlüsse: Plus (+) und Minus (−). Wichtig: Elkos funktionieren nur, wenn sie korrekt gepolt (richtig herum) angeschlossen werden! Wird die Polarität vertauscht, kann der Elko beschädigt werden oder sogar mit einer kleinen Explosion platzen. Klingt spaßig, aber dann haben wir am Ende keinen funktionierenden Weihnachtsbaum, also lassen wir das besser. Die Richtung kannst du an zwei Dingen erkennen: Das Beinchen des Plus-Pols ist etwas länger, zudem ist beim Minus-Pol ein weißer Streifen aufgedruckt.
+		
+		Die Elkos gehören an die Positionen C1, C2 und C3 – C dabei wieder für die Englische Bezeichnung \enquote{Capacitor}. Sie sollen am Ende auf der Seite liegen, knicke die Beinchen also vor dem Einstecken passend ab. Die Richtung ist auf der Platine durch ein + und eine weiß gestrichelte Fläche für Minus erkennbar.
+	\end{minipage}
+	\begin{minipage}{0.15\textwidth}\raggedright
+	\includegraphics[width=\linewidth, right]{elko.png}
+	\includegraphics[width=\linewidth, right]{elko-place.png}
+	\end{minipage}
+	
+	\subsection{LEDs}
+	\begin{minipage}{0.85\textwidth}
+		Eine LED (Licht-emittierende Diode, D) ist ein Bauteil, das Strom in Licht umwandelt. Ähnlich zum Elko haben Dioden zwei Anschlüsse: Plus (+) und Minus (−). Sie funktioniert nur, wenn der Strom in die richtige Richtung fließt, deshalb ist es auch hier wichtig, sie richtig herum anzuschließen. Die Richtung kannst du wieder daran erkennen, dass der Plus-Pol ein etwas längeres Beinchen hat. Zusätzlich ist beim Minus-Pol das Gehäuse etwas abgeflacht, wenn du genau hinschaust siehst du in der LED auch einen kleinen Teller, der mit Minus verbunden ist.
+	
+		Das erkennen dürfte nicht all zu schwer sein - so viele Bauteile sind ja nicht mehr übrig und da wir ja farbiges Licht wollen, sind auch die LEDs schön bunt.
+		
+		Diesmal gibt es beim Löten aber eine etwas höhere Schwierigkeit: Die LEDs sollen auf dem Rand der Platine sitzen. Knicke beide Beinchen also um 90° zur Seite ab, sodass die LEDs wie im Bild sitzen. Der Plus-Pol, also das längere Beinchen, kommt in die Bohrung mit der viereckigen Fläche.
+		
+		Die LEDs gehören an folgende Positionen:
+		\begin{itemize}
+			\item Rote LEDs (D1-D6)
+			\item Gelbe LEDs (D7-D12)
+			\item Grüne LEDs (D13-D18)
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.15\textwidth}\raggedright
+		\includegraphics[width=0.25\linewidth, right]{led.png}
+		\includegraphics[width=1\linewidth, right]{led-place.png}
+	\end{minipage}
+	\pagebreak
+	\section{Üben, üben, üben – Platine B}
+	Wer öfter lötet wird besser, oder? Praktisch, denn wir haben ja noch die zweite Baum-Platine (CTR-30B). Wiederhole die vorherigen Schritte für diese. Die Positionen sind etwas anders:
+	
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item R1, R3 und R5 mit 10kΩ (Die Widerstände mit den vielen Bauteilen)
+			\item R2 mit 330Ω (Orange Streifen)
+			\item R6 mit 1kΩ (Nur dunkle Farben am Rand)
+			\item R4 mit 2kΩ (Roter Streifen am Rand)
+			\item C1-C3 sind wieder die Elkos
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}\raggedright
+		\begin{itemize}
+			\item Q1-Q3 sind die Transistoren		
+			\item Grüne LEDs (D1-D6)
+			\item Rote LEDs (D7-D12)
+			\item Gelbe LEDs (D13-D18)
+		\end{itemize}
+	\end{minipage}
+	\\~\\
+	\emph{Tipp:} Man kann die Platinen schon mal testen, noch ließen sich Fehler einfach beheben. Hierzu benötigen wir eine Spannung von 4-5V, diese können wir z.B. aus dem Batteriepack oder einem Labornetzteil bekommen. Halte die Kabel an die mit + und - beschrifteten Lötflächen unten an der Platine (also dem Baumstamm). Alle LEDs sollten jetzt blinken.
+	
+	\section{Baum-Platinen verbinden}
+	\begin{minipage}{0.9\textwidth}
+		Die beiden Baum-Platinen werden jetzt zusammengeschoben, sodass sie ein Kreuz bilden. Dazu hat eine oben und die Andere unten eine Fräsung. Passt alles? Dann verlöte die kleinen Metallflächen in der Mitte und am Stamm über Eck miteinander.
+	\end{minipage}
+	\begin{minipage}{0.1\textwidth}\raggedright
+		\includegraphics[width=\linewidth]{x-solder.png}
+	\end{minipage}	
+	
+	\subsection{Basisplatine vorbereiten}
+	Eine Platine fehlt noch: Die Basisplatine (CTR-30C). Hier ist nicht viel zu machen: Löte die Stromversorgungsbuchse für das USB-Kabel und den Schalter ein. Ersteres so, dass man von außen einstecken kann, der Schalter hat eine Aussparung, welche zum Platinenrand zeigen muss. Wenn du bei der Buchse sicher gehen willst, kannst du eines der abgeschnittenen Drähtchen wie einen Bügel drüber löten um mehr Stabilität zu bekommen.
+	Danach die Kabel des Batteriehalters durch die kleinen Löcher ohne Metallrand fädeln - Schwarz in Richtung Minus, Rot in Richtung Plus. Nun kannst du den Halter mit den Schrauben und Muttern an der Platine befestigen. Ziehe dann die Kabel komplett durch und Schneide sie so ab, dass wir die am Ende auf die beiden Anschlüsse neben den Bohrungen löten können. Vorher müssen wir aber noch \enquote{abisolieren}, also das Plastik, welches um das Metall des Kabels ist, entfernen. Drücke dazu die Zange nicht so stark wie beim Schneiden zusammen und ziehe das Plastik in Richtung Kabelende weg. Falls das Metall jetzt etwas zerzaust aussieht drehe es leicht zusammen. Jetzt noch verlöten und der Batteriehalter ist fertig.
+	\begin{center}
+		\includegraphics[height=2.8cm]{dc.png}
+		\includegraphics[height=2.8cm]{sw.png}
+		\includegraphics[height=2.8cm]{batcbl.png}
+	\end{center}
+	
+	
+	\noindent\begin{minipage}{0.9\textwidth}
+		\subsection{Baum aufstellen}
+	Nimm jetzt das Kreuz aus den Baum-Platinen und stelle es in die Basis-Platine. Achte darauf, dass + und - der Beschriftungen übereinstimmen. Auch diese werden dann über Eck verlötet.
+	\end{minipage}
+	\begin{minipage}{0.1\textwidth}\raggedright
+	\includegraphics[width=\linewidth]{tree-assy.png}
+	\end{minipage}	
+	
+	\subsection{Die Baumspitze}
+	Fast fertig, aber etwas fehlt noch: Die Baumspitze. Du solltest noch eine rote LED übrig haben. Diese wird ganz oben auf den Baum gesetzt, sodass sie nach oben zeigt. Plus und Minus sind auf der Platine beschriftet, wie du es an der LED erkennst weißt du ja sicher noch.
+	
+	\section{Fertig!}
+	Du hast es geschafft! Dein eigener LED-Weihnachtsbaum ist fertig und sollte jetzt festlich blinken. Du kannst entweder Batterien oder das USB-Kabel benutzen. sWenn etwas nicht funktioniert sprich uns bitte an.
+	
+\end{document}
